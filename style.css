@@ -1,0 +1,14 @@
+#box {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+}
+
+#box-container {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

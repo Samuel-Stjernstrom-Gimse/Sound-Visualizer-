@@ -3,8 +3,6 @@ let analyser: AnalyserNode;
 let source: AudioBufferSourceNode;
 let dataArray: Uint8Array;
 let percentageDisplay: HTMLDivElement;
-let body = document.getElementById('body') as HTMLDivElement
-const box = document.getElementById('box') as HTMLDivElement
 
 function setupFileInput() {
 	const fileInput = document.getElementById('audioFileInput') as HTMLInputElement;
@@ -54,15 +52,11 @@ function updatePercentage() {
 	const maxFrequency = 255; // Adjust this based on your audio data characteristics
 	const percentage = (averageFrequency / maxFrequency) * 100;
 
-
 	// Display the percentage
 	percentageDisplay.innerText = `Percentage: ${percentage.toFixed(2)}%`;
-	const rgbValue = Math.floor(percentage)
-	box.style.border = `${rgbValue}px solid rgb(${rgbValue}, ${(rgbValue/100)*255}, ${rgbValue})`
-	box.style.scale = `${rgbValue}%`
 
 	// Call the update function again after a short interval
-	setTimeout(updatePercentage, 50); // Adjust the interval as needed
+	setTimeout(updatePercentage, 100); // Adjust the interval as needed
 }
 
 function getAverageFrequency() {
@@ -83,5 +77,3 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	setupFileInput();
 });
-
-
